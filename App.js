@@ -1,13 +1,29 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
 import Homepage from "./src/screens/Homepage";
-import Musiclist from "./src/components/musiclist/Musiclist";
+import MusicListView from "./src/screens/MusicListView";
+import MusicPlayerView from "./src/screens/MusicPlayerView";
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Musiclist />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          options={{
+            headerTitle: null,
+            headerStyle: { height: 0 },
+          }}
+          name="Home"
+          component={Homepage}
+        />
+        <Stack.Screen name="Play List" component={MusicListView} />
+        <Stack.Screen name="Music Player" component={MusicPlayerView} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

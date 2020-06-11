@@ -5,6 +5,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 
 class Homepage extends Component {
   render() {
+    const { navigation } = this.props;
     return (
       <View style={styles.container}>
         <View style={styles.icon__container}>
@@ -14,7 +15,9 @@ class Homepage extends Component {
           <Text style={styles.header__text}>Music Player</Text>
         </View>
         <View style={styles.touch}>
-          <TouchableOpacity style={styles.touch__touch} >
+          <TouchableOpacity onPress={() => {
+              navigation.navigate("Play List");
+            }}style={styles.touch__touch} >
             <Text style={styles.touch__text}>Get Started</Text>
           </TouchableOpacity>
         </View>
