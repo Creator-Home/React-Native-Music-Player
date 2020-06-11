@@ -1,38 +1,19 @@
 import React, { Component } from "react";
-import { Text, StyleSheet, View, Image, Animated, Easing } from "react-native";
+import { Text, StyleSheet, View, Image, } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { FontAwesome } from "@expo/vector-icons";
 
 class Musiclist extends Component {
-  //   constructor(props) {
-  //     super(props);
 
-  //     this.state = {
-  //       spinAnim: new Animated.Value(0),
-  //     };
-  //   }
-  //   componentDidMount() {
-  //     Animated.loop(
-  //       Animated.timing(this.state.spinAnim, {
-  //         toValue: 1,
-  //         duration: 3000,
-  //         easing: Easing.linear,
-  //         useNativeDriver: true,
-  //       })
-  //     ).start();
-  //   }
   render() {
     const { image, navigation } = this.props;
-    // const spin = this.state.spinAnim.interpolate({
-    //   inputRange: [0, 1],
-    //   outputRange: ["0deg", "360deg"],
-    // });
+   
     return (
       <View style={styles.container}>
         <View style={styles.card}>
           <View style={styles.card__main}>
             <View style={styles.image__container}>
-              <Animated.Image
+              <Image
                 source={this.props.image}
                 style={{
                   height: 100,
@@ -45,7 +26,7 @@ class Musiclist extends Component {
             <View style={styles.main__details}>
               <TouchableOpacity
                 onPress={() => {
-                  navigation.navigate("MusicPlayerView", {
+                  navigation.navigate("Music Player", {
                     title: this.props.title,
                     image: this.props.image,
                     album: this.props.album,

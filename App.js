@@ -1,15 +1,16 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import MusicPlayerView from "./src/screens/MusicPlayerView";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import Homepage from "./src/screens/Homepage";
 import MusicListView from "./src/screens/MusicListView";
-import MusicPlayerView from "./src/screens/MusicPlayerView";
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
+   
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
@@ -20,8 +21,36 @@ export default function App() {
           name="Home"
           component={Homepage}
         />
-        <Stack.Screen name="Play List" component={MusicListView} />
-        <Stack.Screen name="Music Player" component={MusicPlayerView} />
+        <Stack.Screen
+          options={{
+            title: "Playlist",
+            headerTintColor: "#fff",
+            headerTitleAlign: "center",
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 30,
+            },
+            headerStyle: {
+              backgroundColor: "#6800ad",
+              height: 100,
+            },
+          }}
+          name="Play List"
+          component={MusicListView}
+        />
+        <Stack.Screen options={{
+            title: "Music Player",
+            headerTintColor: "#fff",
+            headerTitleAlign: "center",
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 30,
+            },
+            headerStyle: {
+              backgroundColor: "#6800ad",
+              height: 100,
+            },
+          }} name="Music Player" component={MusicPlayerView} />
       </Stack.Navigator>
     </NavigationContainer>
   );

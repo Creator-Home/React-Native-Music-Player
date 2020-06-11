@@ -18,7 +18,7 @@ class Homepage extends Component {
           <TouchableOpacity onPress={() => {
               navigation.navigate("Play List");
             }}style={styles.touch__touch} >
-            <Text style={styles.touch__text}>Get Started</Text>
+            <Text style={styles.touch__text}>Enter Your World Of Music.</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -46,8 +46,9 @@ const styles = StyleSheet.create({
   },
   touch__text:{
     color: "#fff",
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: "bold",
+    letterSpacing: 1,
   },
   touch__touch:{
       borderBottomWidth: 10,
