@@ -1,11 +1,12 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Homepage from './src/screens/Homepage';
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+import Homepage from "./src/screens/Homepage";
+import Musiclist from "./src/components/musiclist/Musiclist";
 
 export default function App() {
   return (
     <View style={styles.container}>
-     <Homepage/>
+      <Musiclist />
     </View>
   );
 }
