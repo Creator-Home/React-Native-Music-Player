@@ -3,14 +3,17 @@ import { Text, StyleSheet, View, Image, Animated, Easing } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { AntDesign } from "@expo/vector-icons";
 
-
-
 export default class MusicPlayerView extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       spinAnim: new Animated.Value(0),
+      isPlaying: false,
+      playbackInstance: null,
+      currentIndex: 0,
+      volume: 1.0,
+      isBuffering: false,
     };
   }
   componentDidMount() {
@@ -25,7 +28,7 @@ export default class MusicPlayerView extends Component {
   }
   render() {
     const { route } = this.props;
-    const { title, artist, image, uri, album} = route.params;
+    const { title, artist, image, uri, album } = route.params;
     const spin = this.state.spinAnim.interpolate({
       inputRange: [0, 1],
       outputRange: ["0deg", "360deg"],
@@ -37,8 +40,8 @@ export default class MusicPlayerView extends Component {
             source={image}
             style={{
               height: 250,
-            width: 250,
-            margin: 20,
+              width: 250,
+              margin: 20,
               borderRadius: 125,
               alignSelf: "center",
               transform: [{ rotate: spin }],
@@ -46,13 +49,17 @@ export default class MusicPlayerView extends Component {
           />
         </View>
         <View style={styles.nav__icons}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => alert('Not Fully Functional')}>
             <AntDesign name="leftcircle" size={40} color="#fff" />
           </TouchableOpacity>
-          <TouchableOpacity>
-            <AntDesign name="play" size={40} color="#fff" />
+          <TouchableOpacity onPress={() => alert('Not Fully Functional')}>
+            {this.state.isPlaying ? (
+              <AntDesign name="pause" size={40} color="#fff" />
+            ) : (
+              <AntDesign name="play" size={40} color="#fff" />
+            )}
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => alert('Not Fully Functional')}>
             <AntDesign name="rightcircle" size={40} color="#fff" />
           </TouchableOpacity>
         </View>
@@ -89,6 +96,6 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 20,
     letterSpacing: 2,
-    fontWeight: 'bold'
+    fontWeight: "bold",
   },
 });
